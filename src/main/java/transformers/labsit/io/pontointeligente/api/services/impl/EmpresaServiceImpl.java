@@ -3,11 +3,13 @@ package transformers.labsit.io.pontointeligente.api.services.impl;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import transformers.labsit.io.pontointeligente.api.entities.Empresa;
 import transformers.labsit.io.pontointeligente.api.repositories.EmpresasRepository;
 import transformers.labsit.io.pontointeligente.api.services.EmpresaService;
 
+@Service
 public class EmpresaServiceImpl implements EmpresaService {
 
   @Autowired
