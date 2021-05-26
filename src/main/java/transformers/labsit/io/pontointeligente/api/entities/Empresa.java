@@ -60,7 +60,7 @@ public class Empresa implements Serializable {
 		this.cnpj = cnpj;
 	}
 
-	@Column(name = "data_criacao", nullable = false)
+	@Column(name = "created_at", nullable = false)
 	public Date getDataCriacao() {
 		return dataCriacao;
 	}
@@ -69,7 +69,7 @@ public class Empresa implements Serializable {
 		this.dataCriacao = dataCriacao;
 	}
 
-	@Column(name = "data_atualizacao", nullable = false)
+	@Column(name = "updated_at", nullable = false)
 	public Date getDataAtualizacao() {
 		return dataAtualizacao;
 	}
