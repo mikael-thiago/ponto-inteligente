@@ -104,4 +104,15 @@ public class Empresa implements Serializable {
 		return "Empresa [id=" + id + ", razaoSocial=" + razaoSocial + ", cnpj=" + cnpj + ", dataCriacao=" + dataCriacao
 				+ ", dataAtualizacao=" + dataAtualizacao + "]";
 	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (!(obj instanceof Empresa))
+			return false;
+
+		Empresa empObj = (Empresa) obj;
+
+		return getId().equals(empObj.getId());
+
+	}
 }

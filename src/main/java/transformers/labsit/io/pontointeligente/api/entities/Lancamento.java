@@ -76,7 +76,7 @@ public class Lancamento implements Serializable {
 		this.localizacao = localizacao;
 	}
 
-	@Column(name = "data_criacao", nullable = false)
+	@Column(name = "created_at", nullable = false)
 	public Date getDataCriacao() {
 		return dataCriacao;
 	}
@@ -85,7 +85,7 @@ public class Lancamento implements Serializable {
 		this.dataCriacao = dataCriacao;
 	}
 
-	@Column(name = "data_atualizacao", nullable = false)
+	@Column(name = "updated_at", nullable = false)
 	public Date getDataAtualizacao() {
 		return dataAtualizacao;
 	}
@@ -128,8 +128,8 @@ public class Lancamento implements Serializable {
 	@Override
 	public String toString() {
 		return "Lancamento [id=" + id + ", data=" + data + ", descricao=" + descricao + ", localizacao=" + localizacao
-				+ ", dataCriacao=" + dataCriacao + ", dataAtualizacao=" + dataAtualizacao + ", tipo=" + tipo
-				+ ", funcionario=" + funcionario + "]";
+				+ ", dataCriacao=" + dataCriacao + ", dataAtualizacao=" + dataAtualizacao + ", tipo=" + tipo + ", funcionario="
+				+ funcionario + "]";
 	}
 
 }
