@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.Optional;
 
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
@@ -23,13 +24,9 @@ public class FuncionariosRepositoryTest {
     private FuncionariosRepository funcionariosRepository;
 
     private String cpf = "1234567912", email = "mail@mail.com", nome = "Nome";
-    private static boolean primeiro = true;
 
     @BeforeEach
     void beforeEach() {
-        if (!primeiro)
-            return;
-
         Funcionario funcionario = new Funcionario();
         funcionario.setCpf(cpf);
         funcionario.setEmail(email);
@@ -38,7 +35,11 @@ public class FuncionariosRepositoryTest {
         funcionario.setSenha("senha");
 
         funcionariosRepository.save(funcionario);
-        primeiro = false;
+    }
+
+    @AfterEach
+    void afterEach() {
+        funcionariosRepository.deleteAll();
     }
 
     @Test
