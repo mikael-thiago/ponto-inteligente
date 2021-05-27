@@ -92,8 +92,6 @@ public class LancamentosRepositoryTest {
       List<Lancamento> lancamentos = lancamentosRepository.findByFuncionarioId(funcionario.getId());
 
       assertEquals(1, lancamentos.size());
-
-      // assertEquals(lancamentos.get(0), lancamento);
     }
 
     @Test
