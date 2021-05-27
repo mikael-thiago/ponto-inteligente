@@ -63,6 +63,8 @@ public class LancamentosRepositoryTest {
     funcionario.setEmail(emailFuncionario);
     funcionario.setNome(nomeFuncionario);
     funcionario.setPerfil(PerfilEnum.ROLE_USUARIO);
+    funcionario.setDataCriacao(new Date());
+    funcionario.setDataAtualizacao(new Date());
     funcionario.setSenha("senha");
 
     funcionariosRepository.save(funcionario);
@@ -86,6 +88,8 @@ public class LancamentosRepositoryTest {
       lancamento.setFuncionario(funcionario);
       lancamento.setLocalizacao(localizacao);
       lancamento.setTipo(TipoEnum.INICIO_ALMOCO);
+      lancamento.setDataCriacao(dataLancamento);
+      lancamento.setDataAtualizacao(dataLancamento);
       lancamento.setId(1L);
 
       lancamentosRepository.save(lancamento);
@@ -113,6 +117,7 @@ public class LancamentosRepositoryTest {
       lancamento.setLocalizacao(localizacao);
       lancamento.setTipo(TipoEnum.INICIO_ALMOCO);
       lancamento.setDataCriacao(dataLancamento);
+      lancamento.setDataAtualizacao(dataLancamento);
       lancamento.setId(1L);
 
       Lancamento lancamento2 = new Lancamento();
@@ -122,6 +127,7 @@ public class LancamentosRepositoryTest {
       lancamento2.setLocalizacao(localizacao);
       lancamento2.setTipo(TipoEnum.INICIO_ALMOCO);
       lancamento2.setDataCriacao(dataLancamento);
+      lancamento2.setDataAtualizacao(dataLancamento);
       lancamento2.setId(2L);
 
       Lancamento lancamento3 = new Lancamento();
@@ -130,6 +136,7 @@ public class LancamentosRepositoryTest {
       lancamento3.setFuncionario(funcionario);
       lancamento3.setLocalizacao(localizacao);
       lancamento3.setDataCriacao(dataLancamento);
+      lancamento3.setDataAtualizacao(dataLancamento);
       lancamento3.setTipo(TipoEnum.INICIO_ALMOCO);
       lancamento3.setId(3L);
 
@@ -139,6 +146,7 @@ public class LancamentosRepositoryTest {
       lancamento4.setFuncionario(funcionario);
       lancamento4.setLocalizacao(localizacao);
       lancamento4.setDataCriacao(dataLancamento);
+      lancamento4.setDataAtualizacao(dataLancamento);
       lancamento4.setTipo(TipoEnum.INICIO_ALMOCO);
       lancamento4.setId(4L);
 
@@ -148,6 +156,7 @@ public class LancamentosRepositoryTest {
       lancamento5.setFuncionario(funcionario);
       lancamento5.setLocalizacao(localizacao);
       lancamento5.setDataCriacao(dataLancamento);
+      lancamento5.setDataAtualizacao(dataLancamento);
       lancamento5.setTipo(TipoEnum.INICIO_ALMOCO);
       lancamento5.setId(5L);
 
