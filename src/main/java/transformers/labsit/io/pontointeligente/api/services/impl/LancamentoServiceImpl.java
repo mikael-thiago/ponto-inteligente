@@ -3,6 +3,8 @@ package transformers.labsit.io.pontointeligente.api.services.impl;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CachePut;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
@@ -23,11 +25,13 @@ public class LancamentoServiceImpl implements LancamentoService {
   }
 
   @Override
+  @Cacheable("lancamentoPorId")
   public Optional<Lancamento> buscarPorId(Long id) {
     return lancamentosRepository.findById(id);
   }
 
   @Override
+  @CachePut("lancamentoPorId")
   public Lancamento persistir(Lancamento lancamento) {
     return lancamentosRepository.save(lancamento);
   }
