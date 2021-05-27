@@ -3,3 +3,5 @@ jdk:
   - oraclejdk16
 before_install:
   - chmod +x mvnw
+after_failure:
+  - cat target/surefire-reports/*.txt
