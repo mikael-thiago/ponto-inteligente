@@ -44,13 +44,8 @@ public class LancamentosRepositoryTest {
   private Date dataLancamento = new Date(2000, 5, 1);
   private String descricao = "descricao", localizacao = "localização";
 
-  private static boolean primeiro = true;
-
   @BeforeEach
   void beforeEach() {
-    if (!primeiro)
-      return;
-
     empresa = new Empresa();
     empresa.setCnpj(cnpjEmpresa);
     empresa.setRazaoSocial(razaoSocialEmpresa);
@@ -66,15 +61,15 @@ public class LancamentosRepositoryTest {
     funcionario.setDataCriacao(new Date());
     funcionario.setDataAtualizacao(new Date());
     funcionario.setSenha("senha");
+    funcionario.setEmpresa(empresa);
 
-    funcionariosRepository.save(funcionario);
-
-    primeiro = false;
-
+    funcionario = funcionariosRepository.save(funcionario);
   }
 
   @AfterEach
   void afterEach() {
+    empresasRepository.deleteAll();
+    funcionariosRepository.deleteAll();
     lancamentosRepository.deleteAll();
   }
 
