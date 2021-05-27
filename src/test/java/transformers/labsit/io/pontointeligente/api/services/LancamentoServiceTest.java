@@ -9,6 +9,7 @@ import static org.mockito.Mockito.lenient;
 import java.util.ArrayList;
 import java.util.Optional;
 
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
@@ -30,15 +31,17 @@ public class LancamentoServiceTest {
   @MockBean
   private LancamentosRepository lancamentosRepository;
 
+  @Test
   void buscarPorFuncionarioId() {
     lenient().when(lancamentosRepository.findByFuncionarioId(anyLong(), any()))
         .thenReturn(new PageImpl<Lancamento>(new ArrayList<Lancamento>()));
 
-    Page<Lancamento> lancamentos = lancamentoService.buscarPorFuncionarioId(1L, PageRequest.of(0, 0));
+    Page<Lancamento> lancamentos = lancamentoService.buscarPorFuncionarioId(1L, PageRequest.of(0, 1));
 
     assertNotNull(lancamentos);
   }
 
+  @Test
   void buscarPorId() {
     lenient().when(lancamentosRepository.findById(anyLong())).thenReturn(Optional.of(new Lancamento()));
 
@@ -47,8 +50,9 @@ public class LancamentoServiceTest {
     assertTrue(lancamento.isPresent());
   }
 
+  @Test
   void persistir() {
-    lenient().when(lancamentosRepository.save(any())).thenReturn(new Funcionario());
+    lenient().when(lancamentosRepository.save(any())).thenReturn(new Lancamento());
 
     Lancamento lancamento = lancamentoService.persistir(new Lancamento());
 
